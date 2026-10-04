@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>My Orders · Night of ʻOhana</title>
+  <meta name="description" content="Log in with your personal passcode to see your role and private orders.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#1B2A41">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%BA%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/me.js"></script>
+</head>
+<body>
+  <a class="sr-only" href="#main">Skip to your orders</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="./">Night of <span>ʻOhana</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="./">Home</a>
+        <a href="./#crew">Crew</a>
+        <a id="login-link" class="btn btn-small" href="me.html" aria-current="page">Log in</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="section">
+    <div class="container narrow">
+
+      <!-- Shown while we check a saved login -->
+      <p id="loading" class="muted center">Checking the tide charts…</p>
+
+      <!-- ===== Login ===== -->
+      <section id="login-view" class="hidden" aria-labelledby="login-title">
+        <p class="chapter-label">Crew check-in</p>
+        <h1 id="login-title">Who’s coming aboard?</h1>
+        <p class="muted">Tap your name, then type the passcode the Carters sent you.</p>
+
+        <form id="login-form" class="card login-card" novalidate>
+          <fieldset class="name-picker">
+            <legend>1. Your name</legend>
+            <div id="name-grid" class="name-grid" role="radiogroup" aria-label="Your name">
+              <p class="muted">Gathering the crew…</p>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="passcode">2. Your passcode</label>
+            <input id="passcode" name="passcode" type="text" inputmode="text"
+                   autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false"
+                   placeholder="e.g. word-00" required>
+            <p class="muted small">Capitals, spaces and dashes don’t matter.</p>
+          </div>
+
+          <p id="login-msg" class="msg-error" role="alert" aria-live="assertive"></p>
+          <button id="login-btn" class="btn btn-block" type="submit">Open my orders</button>
+        </form>
+
+        <p class="muted small center">Lost your passcode? Ask Jared C. or Melinda.</p>
+      </section>
+
+      <!-- ===== Logged in ===== -->
+      <section id="me-view" class="hidden" aria-labelledby="me-title">
+        <p class="chapter-label">Your station</p>
+        <h1 id="me-title">Aloha!</h1>
+
+        <div id="role-card" class="role-card"></div>
+
+        <article id="teaser" class="card prose teaser" aria-label="Welcome aboard"></article>
+
+        <section class="orders" aria-labelledby="orders-title">
+          <h2 id="orders-title">Private orders</h2>
+          <div id="orders" aria-live="polite"></div>
+        </section>
+
+        <p class="center switch-row">
+          <button id="logout-btn" class="btn btn-ghost btn-small" type="button">Not you? Switch crew member</button>
+        </p>
+      </section>
+
+      <noscript><p class="msg-error">Please turn on JavaScript to log in.</p></noscript>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Mahalo for sailing with us. Imua! 🌺</p>
+      <p><button id="reset-btn" class="btn btn-ghost btn-small" type="button">Reset this device</button></p>
+      <small>Night of ʻOhana · in honor of Hōkūleʻa’s 1976 voyage</small>
+    </div>
+  </footer>
+</body>
+</html>

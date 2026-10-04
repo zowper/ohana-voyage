@@ -1,0 +1,116 @@
+{
+ "version": "2026-10-04T14:08:45.843Z",
+ "iterations": 200000,
+ "chapterIds": [
+  "ch01",
+  "ch02",
+  "ch03",
+  "ch04",
+  "ch05",
+  "ch06",
+  "ch07",
+  "ch08",
+  "ch09",
+  "ch10"
+ ],
+ "roster": [
+  {
+   "id": "vicki",
+   "name": "Vicki",
+   "station": 1,
+   "role": "Captain (Kapena)",
+   "publicText": "Captain of the voyage. Calm under any sky, the Captain keeps the crew together and makes sure every voice is heard.",
+   "token": "Steering Paddle",
+   "prop": "a hat or whistle"
+  },
+  {
+   "id": "glen",
+   "name": "Glen",
+   "station": 2,
+   "role": "Voyage Historian, Logkeeper & Bird Watcher",
+   "publicText": "Keeper of the Voyage Logbook and watcher of the skies. If a bird is circling, Glen knows what it means; if it happened in 1976, Glen wrote it down.",
+   "token": "Bird",
+   "prop": "binoculars"
+  },
+  {
+   "id": "dave",
+   "name": "Dave",
+   "station": 3,
+   "role": "Keeper of the Family Tree (Moʻokūʻauhau)",
+   "publicText": "Keepers of the family's story. Every voyage begins with those who sailed before, and Dave & Julie know every name in the canoe's wake.",
+   "token": "Tree (shared with Julie)",
+   "prop": "a family photo or album"
+  },
+  {
+   "id": "julie",
+   "name": "Julie",
+   "station": 4,
+   "role": "Keeper of the Family Tree (Moʻokūʻauhau)",
+   "publicText": "Keepers of the family's story. Every voyage begins with those who sailed before, and Dave & Julie know every name in the canoe's wake.",
+   "token": "Tree (shared with Dave)",
+   "prop": "a family photo or album"
+  },
+  {
+   "id": "tyson",
+   "name": "Tyson",
+   "station": 5,
+   "role": "Wave Reader",
+   "publicText": "With water in their very name, the Waters read the ocean's swells, feeling the long waves that roll in from winds far away. They're also sailing their own little 'escort canoe,' a baby boy due one month ahead of ours.",
+   "token": "Wave (shared with Sharon)",
+   "prop": "a beach towel or sunglasses"
+  },
+  {
+   "id": "sharon",
+   "name": "Sharon",
+   "station": 6,
+   "role": "Wave Reader",
+   "publicText": "With water in their very name, the Waters read the ocean's swells, feeling the long waves that roll in from winds far away. They're also sailing their own little 'escort canoe,' a baby boy due one month ahead of ours.",
+   "token": "Wave (shared with Tyson)",
+   "prop": "a beach towel or sunglasses"
+  },
+  {
+   "id": "kevin",
+   "name": "Kevin",
+   "station": 7,
+   "role": "Conch Blower & Musician",
+   "publicText": "When the conch sounds, the crew listens! Kevin keeps the crew's spirits high with music, from Hawaiian chants to Brazilian rhythms. Bem-vindo a bordo!",
+   "token": "Conch",
+   "prop": "trumpet (!)"
+  },
+  {
+   "id": "jessie",
+   "name": "Jessie",
+   "station": 8,
+   "role": "Song Keeper",
+   "publicText": "Keeper of the crew's songs and Melinda's best friend since their high-school flute-section days. Proof that some ʻohana are found, not born.",
+   "token": "Flower/Flute",
+   "prop": "flute or a fresh flower"
+  },
+  {
+   "id": "jaredw",
+   "name": "Jared W.",
+   "station": 9,
+   "role": "Star Navigator",
+   "publicText": "The Star Navigator reads the night sky, house by house. Rumor says he shares a first name, a middle name, and an age with our host, a navigator from a parallel island.",
+   "token": "Star",
+   "prop": "anything with stars (Star Wars shirt welcome!)"
+  },
+  {
+   "id": "daniel",
+   "name": "Daniel",
+   "station": 10,
+   "role": "Canoe Builder (Bosun)",
+   "publicText": "Every canoe needs someone who can fix anything, fast, with a smile. Daniel builds, lashes, and repairs, all while cheering the crew on in French. Akwaba! (Welcome!)",
+   "token": "Canoe",
+   "prop": "tool belt or headlamp"
+  }
+ ],
+ "ch00": {
+  "id": "ch00",
+  "title": "The Invitation",
+  "image": "assets/img/ch00.webp",
+  "narrationHtml": "<p>In 1976, a double-hulled voyaging canoe named <strong>Hōkūleʻa</strong>, &quot;Star of Gladness,&quot; sailed about 2,500 miles from Maui to Tahiti with no compass, no charts, and no instruments. Her crew found their way by the stars, the swells, and the birds, proving that our Pacific ancestors could have crossed the ocean on purpose.</p>\n<p>Tonight, our family sails in her wake.</p>\n<p>The Carters&#39; canoe is carrying a precious new passenger, and it will take the whole crew, working together, to bring the voyage home to <strong>Carter Island</strong>, where everyone will meet the newest member of the ʻohana.</p>\n<blockquote>\n<p>Tonight, a canoe waits at Carter Island. Its crew? Each of you. Its passenger? Someone very small, and very loved.</p>\n</blockquote>\n<p>Every crew member below has a station, a role, and a piece of the voyage that no one else holds. Read your crew card, bring your prop, and log in with your personal passcode to see your welcome orders. When the whole crew is gathered, the Voices of the Voyage will give the word, and our canoe will set sail.</p>\n<p>E komo mai. Welcome aboard.</p>\n",
+  "narrationShortHtml": "<p>In 1976, the canoe <strong>Hōkūleʻa</strong> sailed from Maui to Tahiti with no compass and no charts, guided only by stars, swells, and birds. Tonight our family sails in her wake, bringing a precious new passenger home to <strong>Carter Island</strong>.</p>\n<blockquote>\n<p>Its crew? Each of you. Its passenger? Someone very small, and very loved.</p>\n</blockquote>\n<p>E komo mai. Welcome aboard.</p>\n",
+  "bodyHtml": null
+ }
+}
