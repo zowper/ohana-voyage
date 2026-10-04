@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Hints · Night of ʻOhana</title>
+  <meta name="description" content="Stuck on a puzzle? Open a hint, one small step at a time.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#1B2A41">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%BA%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/hints.js"></script>
+</head>
+<body>
+  <a class="sr-only" href="#main">Skip to the hints</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="./">Night of <span>ʻOhana</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="./">Home</a>
+        <a href="voyage.html">Voyage</a>
+        <a href="hints.html" aria-current="page">Hints</a>
+        <a href="map.html">Map</a>
+        <a href="./#crew">Crew</a>
+        <a id="login-link" class="btn btn-small" href="me.html">Log in</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="section">
+    <div class="container narrow">
+      <p class="chapter-label">The Voyage Home</p>
+      <h1>Stuck? Ask the Stars</h1>
+      <p class="muted">Every puzzle has three hints, from a gentle nudge to almost the answer. Open just one at a time and try again before you open the next.</p>
+
+      <div id="hint-list" class="hint-list" aria-live="polite">
+        <p class="muted">Reading the stars…</p>
+      </div>
+
+      <p class="muted small hint-footnote">Don’t see the puzzle you’re working on? Hints appear after its chapter is unlocked <em>on this device</em>. Enter the latest code on the <a href="voyage.html">Voyage page</a> first.</p>
+
+      <noscript><p class="msg-error">Please turn on JavaScript to see the hints.</p></noscript>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Mahalo for sailing with us. Imua! 🌺</p>
+      <p><button id="reset-btn" class="btn btn-ghost btn-small" type="button">Reset this device</button></p>
+      <small>Night of ʻOhana · in honor of Hōkūleʻa’s 1976 voyage</small>
+    </div>
+  </footer>
+</body>
+</html>

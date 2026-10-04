@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Host Console · Night of ʻOhana</title>
+  <meta name="description" content="Host controls, master puzzle checklist, remote navigator briefing, and contingency notes for Jared C. and Melinda.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#1B2A41">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%BA%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/host.js"></script>
+</head>
+<body class="host-page">
+  <header class="site-header">
+    <div class="container host-header-inner">
+      <div class="brand-group">
+        <a class="brand" href="./">Night of <span>ʻOhana</span></a>
+        <span class="badge badge-host">Host Console</span>
+      </div>
+      <nav class="site-nav" aria-label="Main">
+        <a href="./">Home</a>
+        <a href="voyage.html">Voyage</a>
+        <a href="hints.html">Hints</a>
+        <a href="map.html">Map</a>
+        <button id="lock-btn" class="btn btn-ghost btn-small hidden" type="button">Lock</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div id="loading" class="section container narrow text-center">
+      <p class="muted">Checking host credentials…</p>
+    </div>
+
+    <!-- Login View (Locked state) -->
+    <div id="login-view" class="section container narrow hidden">
+      <div class="card login-card">
+        <p class="chapter-label">Private Host Command</p>
+        <h1>🌺 Kapena Console</h1>
+        <p class="muted">Enter the host passcode to open the voyage controls, master code table, remote navigator briefing, and chapter overrides.</p>
+
+        <form id="host-login-form" class="host-login-form" novalidate autocomplete="off">
+          <label for="host-passcode-input">Host Passcode</label>
+          <div class="code-row">
+            <input id="host-passcode-input" name="passcode" type="password"
+                   autocomplete="current-password" autocorrect="off" autocapitalize="none" spellcheck="false"
+                   placeholder="Enter host passcode" aria-describedby="login-msg">
+            <button id="toggle-pwd-btn" class="btn btn-ghost btn-small" type="button" aria-label="Show passcode">👁️</button>
+            <button id="host-login-btn" class="btn" type="submit">Unlock</button>
+          </div>
+          <div class="remember-row">
+            <label class="checkbox-label">
+              <input id="remember-host" type="checkbox"> Remember on this device
+            </label>
+          </div>
+          <p id="login-msg" class="code-msg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Dashboard View (Unlocked state) -->
+    <div id="dashboard-view" class="section container hidden">
+      <!-- Welcome / Host Status Header -->
+      <section class="card host-hero-card" aria-labelledby="host-heading">
+        <div class="host-hero-content">
+          <div>
+            <p class="chapter-label">The Voyage Home · Command Center</p>
+            <h1 id="host-heading">Host Console</h1>
+            <p id="host-greeting" class="muted">Aloha, Jared C. &amp; Melinda!</p>
+          </div>
+          <div id="device-sync-badge" class="device-status-badge">
+            <span class="status-indicator"></span>
+            <span id="device-status-text">Checking device status…</span>
+          </div>
+        </div>
+
+        <nav class="host-quick-nav" aria-label="Host sections">
+          <a class="host-nav-pill" href="#section-overrides">⚡ Overrides</a>
+          <a class="host-nav-pill" href="#section-checklist">📋 Checklist &amp; Codes</a>
+          <a class="host-nav-pill" href="#section-remote">📱 Remote Navigator</a>
+          <a class="host-nav-pill" href="#section-crew">👥 Crew Passcodes</a>
+          <a class="host-nav-pill" href="#section-vault">🧩 Puzzle Vault</a>
+          <a class="host-nav-pill" href="#section-contingencies">🛟 Contingencies</a>
+        </nav>
+      </section>
+
+      <!-- Section: Device Overrides ("Unlock up to chapter N") -->
+      <section id="section-overrides" class="card host-section" aria-labelledby="overrides-heading">
+        <div class="section-title-row">
+          <div>
+            <span class="section-tag">Device Controls</span>
+            <h2 id="overrides-heading">⚡ Voyage Overrides &amp; TV Sync</h2>
+          </div>
+        </div>
+        <p class="muted">
+          Need to catch up this phone, the TV map screen, or test future acts? Select a target chapter to unlock every chapter up to that point on this device.
+        </p>
+
+        <div class="override-panel">
+          <div class="override-controls">
+            <div class="override-select-group">
+              <label for="override-chapter-select">Unlock all chapters up to:</label>
+              <select id="override-chapter-select" aria-label="Select target chapter">
+                <option value="1">Chapter 1: Embark</option>
+                <option value="2">Chapter 2: The Voyage Begins</option>
+                <option value="3">Chapter 3: The Land Birds</option>
+                <option value="4">Chapter 4: Roots in the Ocean</option>
+                <option value="5">Chapter 5: Reading the Swells</option>
+                <option value="6">Chapter 6: Friends Who Sail With Us</option>
+                <option value="7">Chapter 7: Navigating by the Stars</option>
+                <option value="8">Chapter 8: The Distant Island</option>
+                <option value="9">Chapter 9: The Waymakers</option>
+                <option value="10">Chapter 10: Landfall</option>
+              </select>
+            </div>
+            <div class="override-btn-group">
+              <button id="btn-unlock-upto" class="btn btn-teal" type="button">Unlock Up to Chapter</button>
+              <button id="btn-unlock-all" class="btn" type="button">Unlock All Available</button>
+              <button id="btn-reset-unlocks" class="btn btn-ghost btn-small" type="button">Reset Device Progress</button>
+            </div>
+          </div>
+
+          <div id="override-feedback" class="override-feedback" role="status" aria-live="polite"></div>
+
+          <div class="progress-track-wrap">
+            <span class="progress-track-label">Device progress:</span>
+            <div id="chapter-strip" class="chapter-strip">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <div class="override-links">
+            <a class="btn btn-ghost btn-small" href="voyage.html" target="_blank" rel="noopener">Open Voyage Page ↗</a>
+            <a class="btn btn-ghost btn-small" href="map.html" target="_blank" rel="noopener">Open TV Map Page ↗</a>
+            <a class="btn btn-ghost btn-small" href="hints.html" target="_blank" rel="noopener">Open Hints Page ↗</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Master Puzzle & Prop Checklist -->
+      <section id="section-checklist" class="card host-section" aria-labelledby="checklist-heading">
+        <div class="section-title-row">
+          <div>
+            <span class="section-tag">Run of Show</span>
+            <h2 id="checklist-heading">📋 Master Checklist, Answers &amp; Props</h2>
+          </div>
+          <div class="checklist-summary">
+            <span id="checklist-counter" class="badge">0 completed</span>
+          </div>
+        </div>
+        <p class="muted">
+          All puzzle steps, locks, containers, hiding spots, and answers in chronological order. Check items off as they happen during the event.
+        </p>
+
+        <div class="checklist-filter-bar">
+          <div class="filter-btn-group" role="group" aria-label="Checklist filters">
+            <button class="filter-btn is-active" data-filter="all" type="button">All Steps</button>
+            <button class="filter-btn" data-filter="pending" type="button">Pending</button>
+            <button class="filter-btn" data-filter="done" type="button">Completed</button>
+          </div>
+          <input id="checklist-search" type="text" placeholder="Search by puzzle, owner, lock, or location…" aria-label="Search steps">
+        </div>
+
+        <div id="steps-list" class="steps-list">
+          <!-- Rendered via JS -->
+        </div>
+      </section>
+
+      <!-- Section: Remote Navigator -->
+      <section id="section-remote" class="card host-section" aria-labelledby="remote-heading">
+        <div class="section-title-row">
+          <div>
+            <span class="section-tag">Surprise 11th Crew Member</span>
+            <h2 id="remote-heading">📱 <span id="remote-name-heading">Remote Navigator</span></h2>
+          </div>
+          <span class="badge badge-new">Surprise</span>
+        </div>
+
+        <div class="remote-grid">
+          <!-- Contact card -->
+          <div class="remote-card card">
+            <div class="remote-top">
+              <div>
+                <h3 id="remote-full-name" class="remote-title"></h3>
+                <p id="remote-role-text" class="remote-role muted"></p>
+                <p id="remote-location-text" class="small muted"></p>
+              </div>
+              <div class="remote-phone-box">
+                <span class="remote-phone-label">Secret Phone Line</span>
+                <span id="remote-phone-display" class="remote-phone-number">---</span>
+                <div class="phone-action-btns">
+                  <a id="remote-tel-btn" class="btn btn-small btn-teal" href="#">📞 Call</a>
+                  <a id="remote-sms-btn" class="btn btn-small" href="#">💬 Text</a>
+                  <button id="remote-copy-btn" class="btn btn-ghost btn-small" type="button">Copy</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="remote-window-box">
+              <strong>Call Window:</strong>
+              <span id="remote-window-text"></span>
+            </div>
+
+            <div class="remote-cues-box">
+              <h4>Host Text Cues</h4>
+              <div id="remote-cues-list" class="remote-cues-list">
+                <!-- Rendered via JS -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Script & Fallback card -->
+          <div class="remote-card card">
+            <h3>Phone Call Flow &amp; Script</h3>
+            <ol class="remote-flow-list">
+              <li><strong>Call connects:</strong> Greets in character as the faraway navigator.</li>
+              <li>
+                <strong>Twin check with Sharon:</strong>
+                <div class="twin-check-box">
+                  <span class="label-badge">Question for Sharon:</span>
+                  <p id="twin-question-text" class="twin-q-text"></p>
+                </div>
+              </li>
+              <li>
+                <strong>Code revealed:</strong> Word that opens the toolbox.
+              </li>
+              <li>
+                <strong>Toolbox location revealed:</strong>
+                <p id="remote-toolbox-loc" class="small muted"></p>
+              </li>
+              <li>
+                <strong>Daniel wrist warning:</strong> Reminder about 100 screws!
+              </li>
+            </ol>
+
+            <div class="contingency-box">
+              <h4>⚠️ Fallback if Unreachable</h4>
+              <p id="remote-fallback-text" class="small"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Crew Passcodes & Roster -->
+      <section id="section-crew" class="card host-section" aria-labelledby="crew-heading">
+        <div class="section-title-row">
+          <div>
+            <span class="section-tag">Crew Directory</span>
+            <h2 id="crew-heading">👥 Crew Passcodes &amp; Stations</h2>
+          </div>
+          <input id="crew-search" class="crew-search-input" type="text" placeholder="Filter by name or station…" aria-label="Search crew">
+        </div>
+        <p class="muted">
+          All 10 player passcodes, station numbers, shell tokens, and personalized login links. If anyone forgets their code, you can find it and copy it instantly.
+        </p>
+
+        <div id="crew-table-wrap" class="crew-table-wrap">
+          <table class="host-table crew-table">
+            <thead>
+              <tr>
+                <th scope="col">Station</th>
+                <th scope="col">Crew Member</th>
+                <th scope="col">Role</th>
+                <th scope="col">Passcode</th>
+                <th scope="col">Shell Token</th>
+                <th scope="col">UV Mark</th>
+                <th scope="col">Personal Link</th>
+              </tr>
+            </thead>
+            <tbody id="crew-tbody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section: Puzzle Vault (Reference Data) -->
+      <section id="section-vault" class="card host-section" aria-labelledby="vault-heading">
+        <div class="section-title-row">
+          <div>
+            <span class="section-tag">Mechanics</span>
+            <h2 id="vault-heading">🧩 Puzzle Data Vault</h2>
+          </div>
+        </div>
+        <p class="muted">
+          Underlying data, tables, and mechanics for the multi-step puzzles. Keep this handy if guests ask questions or need nudges.
+        </p>
+
+        <div class="vault-accordion">
+          <!-- UV Marks -->
+          <details class="vault-item" open>
+            <summary class="vault-summary"><strong>🔦 UV Marks on Role Cards</strong> (P1 &amp; P2)</summary>
+            <div class="vault-body">
+              <p class="small muted">
+                Stations 1, 3, 5, 7, 9 spell the canoe name. Stations 2, 4, 6, 8, 10 feature birds with numbers; the 3 land birds in order give the 3-digit code.
+              </p>
+              <div id="uv-marks-table-wrap" class="table-scroll">
+                <!-- Rendered via JS -->
+              </div>
+            </div>
+          </details>
+
+          <!-- Star Compass & Watches -->
+          <details class="vault-item">
+            <summary class="vault-summary"><strong>⭐ Star Compass &amp; Three Watches</strong> (P7 Distant Navigator)</summary>
+            <div class="vault-body">
+              <p class="small muted">
+                Three watches decode via the 10 Star Compass houses (0–9) to form the 10-digit phone number.
+              </p>
+              <div id="star-watches-box" class="star-watches-box">
+                <!-- Rendered via JS -->
+              </div>
+              <h4 class="mt-2">Star Compass Houses (0–9)</h4>
+              <div id="star-houses-table-wrap" class="table-scroll">
+                <!-- Rendered via JS -->
+              </div>
+            </div>
+          </details>
+
+          <!-- Swell Chart -->
+          <details class="vault-item">
+            <summary class="vault-summary"><strong>🌊 Swell Chart Waypoints</strong> (P4 Reading the Swells)</summary>
+            <div class="vault-body">
+              <p class="small muted">
+                5 waypoints combine swell origin and helm direction to yield the 5 directional moves.
+              </p>
+              <div id="swell-chart-wrap" class="table-scroll">
+                <!-- Rendered via JS -->
+              </div>
+            </div>
+          </details>
+
+          <!-- Song of Arrival -->
+          <details class="vault-item">
+            <summary class="vault-summary"><strong>🎵 Song of Arrival</strong> (P5 Kevin's Melody)</summary>
+            <div class="vault-body">
+              <p class="small muted">
+                Circled notes on the sheet music are F – A – C – E. Song Keeper's Chart mapping (<span id="song-chart-label"></span>) translates them into the 4-digit code.
+              </p>
+            </div>
+          </details>
+
+          <!-- Landfall Tokens -->
+          <details class="vault-item">
+            <summary class="vault-summary"><strong>🏝️ Landfall &amp; Shell Tokens</strong> (P10 Carter Island Final Code)</summary>
+            <div class="vault-body">
+              <p class="small muted">
+                The 9 shell tokens are placed on the Chart of Carter Island along the navigated route. 3 tokens carry invisible UV digits on their backs, read in route order to form the 3-digit Treasure Chest code.
+              </p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- Section: Contingencies -->
+      <section id="section-contingencies" class="card host-section" aria-labelledby="contingencies-heading">
+        <div class="section-title-row">
+          <div>
+            <span class="section-tag">Playbook</span>
+            <h2 id="contingencies-heading">🛟 Contingency Notes &amp; Emergency Kit</h2>
+          </div>
+        </div>
+
+        <div class="contingency-grid">
+          <div class="card contingency-card">
+            <h3>Event Contingencies</h3>
+            <ul id="contingencies-list" class="contingencies-list">
+              <!-- Rendered via JS -->
+            </ul>
+          </div>
+
+          <div class="card contingency-card">
+            <h3>Host Emergency Kit Checklist</h3>
+            <ul class="emergency-checklist">
+              <li><label><input type="checkbox"> Spare physical keys for Key Padlock #1 and #2</label></li>
+              <li><label><input type="checkbox"> Extra screwdriver + power drill with bit (for 100-screw box)</label></li>
+              <li><label><input type="checkbox"> Blacklight #1 (regular) + Blacklight #2 (365nm for tokens)</label></li>
+              <li><label><input type="checkbox"> Spare AAA/AA batteries for blacklights</label></li>
+              <li><label><input type="checkbox"> Printed Narration Script &amp; Host Cheat Sheet booklet</label></li>
+              <li><label><input type="checkbox"> Spare pens &amp; leis for Nelson at the door</label></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Night of ʻOhana · Host Command Console 🌺</p>
+      <div class="footer-actions">
+        <button id="footer-lock-btn" class="btn btn-ghost btn-small hidden" type="button">Lock Console</button>
+        <button id="reset-btn" class="btn btn-ghost btn-small" type="button">Reset this device</button>
+      </div>
+      <small>Host view contains event solutions. Keep this screen private to Jared C. &amp; Melinda.</small>
+    </div>
+  </footer>
+
+  <!-- Toast notification container -->
+  <div id="host-toast" class="host-toast" role="status" aria-live="polite"></div>
+</body>
+</html>

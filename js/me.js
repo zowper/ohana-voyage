@@ -36,15 +36,20 @@ async function main() {
   const state = loadState();
   if (state.me && state.passcode) {
     const ok = await openOrders(state.me, state.passcode);
-    if (ok) return;
+    if (ok) {
+      document.body.dataset.ready = 'true';
+      return;
+    }
     // Saved passcode no longer works (e.g. codes changed): forget it and show login.
     const s = loadState();
     delete s.me; delete s.passcode;
     saveState(s);
     renderLogin('Please log in again.');
+    document.body.dataset.ready = 'true';
     return;
   }
   renderLogin();
+  document.body.dataset.ready = 'true';
 }
 
 // ---------- login ----------

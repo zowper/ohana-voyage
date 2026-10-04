@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>The Voyage · Night of ʻOhana</title>
+  <meta name="description" content="Enter the codes your crew discovers to unlock each chapter of the voyage.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#1B2A41">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%BA%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/voyage.js"></script>
+</head>
+<body>
+  <a class="sr-only" href="#code-input">Skip to the code box</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="./">Night of <span>ʻOhana</span></a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="./">Home</a>
+        <a href="voyage.html" aria-current="page">Voyage</a>
+        <a href="hints.html">Hints</a>
+        <a href="map.html">Map</a>
+        <a href="./#crew">Crew</a>
+        <a id="login-link" class="btn btn-small" href="me.html">Log in</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="section">
+    <div class="container narrow">
+      <p class="chapter-label">The Voyage Home</p>
+      <h1>Our Voyage</h1>
+      <p class="muted">Each puzzle the crew solves gives you a code. Type it here to sail into the next chapter.</p>
+
+      <form id="code-form" class="card code-card" novalidate autocomplete="off">
+        <label for="code-input">Enter a code the crew discovered</label>
+        <div class="code-row">
+          <input id="code-input" name="code" type="text" inputmode="text"
+                 autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false"
+                 placeholder="Type the code" aria-describedby="code-help code-msg">
+          <button id="code-btn" class="btn" type="submit">Unlock</button>
+        </div>
+        <p id="code-help" class="muted small">Capitals, spaces, ʻokina and kahakō don’t matter. Arrows (↑ ↓ ← →) or words like “up” work for directions.</p>
+        <p id="code-msg" class="code-msg" role="status" aria-live="polite"></p>
+      </form>
+
+      <p id="progress" class="progress muted" aria-live="polite"></p>
+
+      <section aria-labelledby="chapters-title">
+        <h2 id="chapters-title" class="sr-only">Chapters</h2>
+        <div id="chapter-list" class="chapter-list">
+          <p class="muted">Reading the logbook…</p>
+        </div>
+      </section>
+
+      <noscript><p class="msg-error">Please turn on JavaScript to sail the voyage.</p></noscript>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Mahalo for sailing with us. Imua! 🌺</p>
+      <p><button id="reset-btn" class="btn btn-ghost btn-small" type="button">Reset this device</button></p>
+      <small>Night of ʻOhana · in honor of Hōkūleʻa’s 1976 voyage</small>
+    </div>
+  </footer>
+</body>
+</html>

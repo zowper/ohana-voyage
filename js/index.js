@@ -39,6 +39,7 @@ async function main() {
   document.getElementById('crew-count').textContent = String(pub.roster.length);
 
   await addSurpriseCrew(grid);
+  document.body.dataset.ready = 'true';
 }
 
 async function addSurpriseCrew(grid) {
