@@ -467,7 +467,7 @@ function renderCrewSection() {
       const pub = pubMap.get(member.id) || {};
       const uvMark = uvMap.get(member.station) || '';
       const token = pub.token || '';
-      const { emoji } = tokenInfo(token);
+      const { emoji, slug } = tokenInfo(token);
       const personalLink = `${origin}/me.html?crew=${member.id}`;
 
       const rowText = `${member.station} ${member.name} ${member.role} ${member.passcode} ${token}`.toLowerCase();
@@ -477,14 +477,22 @@ function renderCrewSection() {
       tr.innerHTML = `
         <td class="text-center font-bold">#${esc(member.station)}</td>
         <td>
-          <strong>${esc(member.name)}</strong>
+          <div class="host-crew-name-cell">
+            <img src="assets/crew/${member.id}.webp" alt="" class="host-avatar-sm" onerror="this.remove()">
+            <strong>${esc(member.name)}</strong>
+          </div>
         </td>
         <td class="muted small">${esc(member.role)}</td>
         <td>
           <span class="passcode-code">${esc(member.passcode)}</span>
           <button class="btn btn-ghost btn-small copy-passcode-btn" type="button" data-copy="${esc(member.passcode)}">Copy</button>
         </td>
-        <td class="small">${emoji} ${esc(token)}</td>
+        <td class="small">
+          <span class="host-token-cell">
+            ${slug ? `<img src="assets/tokens/${slug}.webp" alt="" class="host-token-sm" onerror="this.remove()">` : ''}
+            <span>${emoji} ${esc(token)}</span>
+          </span>
+        </td>
         <td class="small font-mono">${esc(uvMark)}</td>
         <td>
           <button class="btn btn-ghost btn-small copy-link-btn" type="button" data-copy="${esc(personalLink)}" title="${esc(personalLink)}">Copy Link</button>

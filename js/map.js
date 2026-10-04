@@ -93,6 +93,15 @@ function getChapterData(id) {
 
 // ---------- UI Setup & Listeners ----------
 function initUI() {
+  // Watercolor map backdrop (TODO 6.2)
+  const bgImg = $('svg-bg-img');
+  if (bgImg) {
+    const testImg = new Image();
+    testImg.onload = () => { bgImg.style.display = 'inline'; };
+    testImg.onerror = () => { bgImg.style.display = 'none'; };
+    testImg.src = 'assets/img/map.webp';
+  }
+
   // Top toolbar controls
   $('fullscreen-toggle-btn')?.addEventListener('click', toggleFullscreen);
   document.addEventListener('fullscreenchange', updateFullscreenBtn);

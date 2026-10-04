@@ -63,7 +63,12 @@ function renderLogin(message = '') {
     b.setAttribute('role', 'radio');
     b.setAttribute('aria-checked', 'false');
     b.dataset.id = p.id;
-    b.innerHTML = `<span class="name-tile-name">${esc(p.name)}</span><span class="name-tile-role">${esc(p.role)}</span>`;
+    b.innerHTML = `
+      <div class="name-tile-avatar"><img src="assets/crew/${p.id}.webp" alt="" loading="lazy" decoding="async"></div>
+      <div class="name-tile-text">
+        <span class="name-tile-name">${esc(p.name)}</span>
+        <span class="name-tile-role">${esc(p.role)}</span>
+      </div>`;
     b.addEventListener('click', () => pick(p.id, true));
     return b;
   }));

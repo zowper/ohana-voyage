@@ -105,7 +105,10 @@ export function crewCard(member, { special = false } = {}) {
     ico.setAttribute('aria-hidden', 'true');
     ico.textContent = emoji;
     if (slug) {
-      const img = optionalImg(`assets/tokens/${slug}.svg`, '', () => chip.prepend(ico));
+      const img = optionalImg(`assets/tokens/${slug}.webp`, '', () => {
+        const svg = optionalImg(`assets/tokens/${slug}.svg`, '', () => chip.prepend(ico));
+        chip.prepend(svg);
+      });
       chip.append(img);
     } else {
       chip.append(ico);
