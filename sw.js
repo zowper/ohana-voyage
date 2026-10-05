@@ -1,7 +1,7 @@
 // Night of ʻOhana — Service Worker for offline voyaging.
 // (PUBLISHED FILE: keep comments and code completely free of answers, passcodes, and secrets.)
 
-const CACHE_NAME = 'ohana-voyage-20261005-muuptdrd';
+const CACHE_NAME = 'ohana-voyage-20261005-muuqkbvc';
 
 // Default precache asset list. In production, scripts/build.mjs injects the exact list of built files.
 const PRECACHE_ASSETS = [
@@ -60,11 +60,13 @@ const PRECACHE_ASSETS = [
   "js/index.js",
   "js/map.js",
   "js/me.js",
+  "js/recap.js",
   "js/unlock.js",
   "js/voyage.js",
   "manifest.json",
   "map.html",
   "me.html",
+  "recap.html",
   "voyage.html"
 ];
 

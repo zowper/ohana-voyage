@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voyage Recap &amp; Mahalo · Night of ʻOhana</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1B2A41">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="ʻOhana Voyage">
+<link rel="apple-touch-icon" href="assets/tokens/canoe.webp">
+<link rel="icon" href="assets/tokens/canoe.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-recap">
+
+<header class="site-header">
+  <div class="site-brand">
+    <span class="canoe-icon">⛵</span>
+    <span class="site-title"><a href="index.html">Night of ʻOhana</a></span>
+  </div>
+  <nav class="site-nav">
+    <a href="index.html">Home</a>
+    <a href="voyage.html">Voyage</a>
+    <a href="hints.html">Hints</a>
+    <a href="map.html">Map</a>
+    <a href="me.html" id="login-link" class="btn btn-primary">Log in</a>
+  </nav>
+</header>
+
+<main>
+  <!-- Hero Section -->
+  <section class="recap-hero">
+    <div class="container text-center">
+      <div class="hero-badge">✦ Post-Event Chronicle ✦</div>
+      <h1 class="recap-title">The Voyage Home: Mahalo &amp; Memories</h1>
+      <p class="recap-subtitle">
+        On October 11, 2026, ten brave voyagers, one distant navigator, and one keiki deckhand set sail across the ocean to Carter Island. Guided only by the stars, the ocean swells, the land-finding birds, and the love of our kūpuna, our canoe reached shore, cracked the final chest, and welcomed our family's newest little voyager home!
+      </p>
+      <div class="recap-stats-strip">
+        <div class="recap-stat">
+          <span class="stat-num">34</span>
+          <span class="stat-label">Days to Tahiti (1976)</span>
+        </div>
+        <div class="recap-stat">
+          <span class="stat-num">10</span>
+          <span class="stat-label">Puzzle Steps Solved</span>
+        </div>
+        <div class="recap-stat">
+          <span class="stat-num">11</span>
+          <span class="stat-label">United Crew Members</span>
+        </div>
+        <div class="recap-stat">
+          <span class="stat-num">1</span>
+          <span class="stat-label">Precious Reveal 🎉</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Host Editing Guide (Visible to Hosts for Staging Post-Event Photos) -->
+  <section class="section section-compact">
+    <div class="container">
+      <div class="recap-host-note">
+        <div class="host-note-header">
+          <span class="host-note-icon">📸</span>
+          <strong>For Hosts (Jared C. &amp; Melinda): Adding Your Party Photos</strong>
+        </div>
+        <p class="host-note-body">
+          To display your photos from the evening, simply place your photos into <code>assets/recap/photo01.jpg</code> through <code>photo12.jpg</code> and redeploy. The cards below currently showcase our original watercolor artwork as beautiful fallbacks until your photos are loaded!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: The Crew Mahalo Roll -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge">Honor Roll</span>
+        <h2>Mahalo to Every Crew Member</h2>
+        <p class="sub">Every voyager carried a piece of the wayfinding puzzle. Without each of you, the canoe would still be at sea.</p>
+      </div>
+
+      <div id="recap-crew-grid" class="recap-crew-grid">
+        <!-- Populated dynamically by js/recap.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Photo Gallery of Key Moments -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="badge">Chronicle</span>
+        <h2>Moments of the Voyage</h2>
+        <p class="sub">From the sweet smell of plumeria leis at boarding to the unlocking of the final Treasure Chest.</p>
+      </div>
+
+      <div id="recap-gallery-grid" class="recap-gallery-grid">
+        <!-- Populated dynamically by js/recap.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Final Blessing & Return -->
+  <section class="section text-center">
+    <div class="container">
+      <div class="recap-closing-card">
+        <div class="canoe-big-icon">⛵</div>
+        <h2 class="closing-title">He Waʻa, He Moku — The Canoe is an Island</h2>
+        <p class="closing-text">
+          "On the open ocean, the canoe becomes your island, and the crew becomes your ʻohana. Thank you for sailing with us, for solving each riddle with laughter and patience, and for welcoming our growing family with so much love."
+        </p>
+        <div class="closing-signature">
+          — Jared C., Melinda, Nelson &amp; Baby Carter
+        </div>
+        <div class="closing-actions">
+          <a href="index.html" class="btn btn-primary">Return to Home</a>
+          <a href="map.html" class="btn btn-ghost">View the Voyage Map</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Night of ʻOhana: The Voyage Home · October 11, 2026</p>
+    <div class="footer-actions">
+      <a href="recap.html" class="btn btn-ghost" aria-current="page">Voyage Recap</a>
+      <button id="reset-btn" class="btn btn-ghost">Reset this device</button>
+    </div>
+    <small>Built with aloha for our family. All content encrypted until unlocked.</small>
+  </div>
+</footer>
+
+<script type="module" src="js/recap.js"></script>
+</body>
+</html>
