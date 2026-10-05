@@ -175,13 +175,6 @@ function renderMe(id, teaser) {
   document.title = `${member.name}'s Orders · Night of ʻOhana`;
 
   const card = crewCard(member);
-  if (member.prop && !teaser.isDefault) {
-    const p = document.createElement('p');
-    p.className = 'crew-prop';
-    p.innerHTML = `<strong>Bring if you like:</strong> ${esc(member.prop)}`;
-    const meta = card.querySelector('.crew-meta');
-    if (meta) meta.before(p); else card.append(p);
-  }
   $('role-card').replaceChildren(card);
 
   $('teaser').innerHTML = teaser.html || '';

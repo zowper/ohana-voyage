@@ -1,0 +1,28 @@
+{
+  "name": "Night of ʻOhana — The Voyage Home",
+  "short_name": "ʻOhana Voyage",
+  "description": "A family puzzle voyage celebrating courage, stars, and ʻohana.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0B1D28",
+  "theme_color": "#1B2A41",
+  "icons": [
+    {
+      "src": "assets/tokens/canoe.webp",
+      "sizes": "192x192",
+      "type": "image/webp"
+    },
+    {
+      "src": "assets/tokens/canoe.webp",
+      "sizes": "512x512",
+      "type": "image/webp"
+    },
+    {
+      "src": "assets/tokens/star.webp",
+      "sizes": "192x192",
+      "type": "image/webp"
+    }
+  ]
+}

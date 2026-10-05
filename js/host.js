@@ -568,6 +568,30 @@ function renderVaultSection() {
 
   // Song of Arrival
   $('song-chart-label').textContent = currentBundle.songKeeperChart || '';
+
+  // Landfall & Shell Tokens
+  const tokenWrap = $('landfall-tokens-wrap');
+  if (tokenWrap) {
+    const tokenData = currentBundle.finalCodeTokens?.tokens || [];
+    let tokenHtml = '<table class="host-table"><thead><tr><th>Route #</th><th>Island</th><th>Token</th><th>Role Holder</th><th>UV Back Mark</th></tr></thead><tbody>';
+    tokenData.forEach((t) => {
+      const isDigit = t.isDigit;
+      tokenHtml += `<tr>
+        <td class="text-center font-bold">#${esc(t.order)}</td>
+        <td><strong>${esc(t.island)}</strong></td>
+        <td>
+          <span class="host-token-cell">
+            <img src="assets/tokens/${esc(t.slug)}.webp" alt="" class="host-token-sm" onerror="this.remove()">
+            <span>${esc(t.token)}</span>
+          </span>
+        </td>
+        <td class="small">${esc(t.holder)}</td>
+        <td class="font-mono font-bold ${isDigit ? 'color-coral' : 'muted'}">${esc(t.uvMark)}</td>
+      </tr>`;
+    });
+    tokenHtml += '</tbody></table>';
+    tokenWrap.innerHTML = tokenHtml;
+  }
 }
 
 // ---------------------------------------------------------------------

@@ -1322,6 +1322,30 @@ body.is-fullscreen {
 .site-footer small { color: var(--foam); opacity: 0.8; }
 
 
+/* ---------- offline banner (service worker) ---------- */
+.offline-banner {
+  background: var(--night);
+  color: var(--sand);
+  border-bottom: 2px solid var(--gold);
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(27, 42, 65, 0.35);
+  animation: slideDown 0.3s ease-out;
+}
+.offline-banner.is-online {
+  background: #1f7a6f;
+  border-bottom-color: var(--foam);
+}
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
 /* ---------- motion & print ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }

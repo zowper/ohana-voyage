@@ -144,3 +144,77 @@ export async function initHeader() {
     if (p) link.textContent = `${p.name}'s orders`;
   } catch { /* keep default label */ }
 }
+
+/** Initialize Service Worker for offline voyage and online/offline indicator. */
+export function initServiceWorker() {
+  if (typeof window === 'undefined' || typeof navigator === 'undefined') return;
+
+  // Set up online / offline visual indicator
+  function updateOnlineStatus() {
+    let banner = document.getElementById('offline-banner');
+    if (!banner) {
+      banner = document.createElement('div');
+      banner.id = 'offline-banner';
+      banner.className = 'offline-banner';
+      banner.setAttribute('role', 'status');
+      banner.setAttribute('aria-live', 'polite');
+      document.body.prepend(banner);
+    }
+    if (!navigator.onLine) {
+      banner.textContent = '📡 Offline mode — Voyage materials ready on your device';
+      banner.classList.add('is-offline');
+      banner.hidden = false;
+    } else if (banner.classList.contains('is-offline')) {
+      banner.textContent = '✦ Back online — Voyage connected';
+      banner.classList.remove('is-offline');
+      banner.classList.add('is-online');
+      setTimeout(() => {
+        banner.classList.remove('is-online');
+        banner.hidden = true;
+      }, 2500);
+    } else {
+      banner.hidden = true;
+    }
+  }
+
+  window.addEventListener('online', updateOnlineStatus);
+  window.addEventListener('offline', updateOnlineStatus);
+  if (!navigator.onLine) updateOnlineStatus();
+
+  // Register service worker on HTTPS or localhost/127.0.0.1
+  if ('serviceWorker' in navigator) {
+    const isSecure = window.location.protocol === 'https:' ||
+                     window.location.hostname === 'localhost' ||
+                     window.location.hostname === '127.0.0.1';
+    if (!isSecure) return;
+
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js', { scope: './' })
+        .then((reg) => {
+          reg.addEventListener('updatefound', () => {
+            const installing = reg.installing;
+            if (installing) {
+              installing.addEventListener('statechange', () => {
+                if (installing.state === 'installed' && navigator.serviceWorker.controller) {
+                  console.log('Night of ʻOhana: Voyage materials updated for offline use.');
+                }
+              });
+            }
+          });
+        })
+        .catch((err) => {
+          console.warn('Service Worker registration skipped:', err.message || err);
+        });
+    });
+  }
+}
+
+// Auto-initialize when loaded in browser
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initServiceWorker);
+  } else {
+    initServiceWorker();
+  }
+}
+
