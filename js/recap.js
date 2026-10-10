@@ -16,7 +16,7 @@ const STATION_REFLECTIONS = {
   kevin: 'Sounded the ceremonial call to embark, and filled the canoe deck with joy by playing the Song of Arrival on trumpet and piano.',
   jessie: 'Kept the tempo of our voyage, decoded the musical notes into the song-box code, and cracked the Friendship Box alongside Melinda.',
   jaredw: 'Reconstructed the 10-house Star Compass from the crew\'s celestial notes, finding the exact coordinates to reach our distant navigator.',
-  daniel: 'Unlashed 100 screws with blazing speed and unmatched cheer, retrieving the master chart just in time for the final approach to Carter Island.',
+  daniel: 'Unlashed 123 screws with blazing speed and unmatched cheer, retrieving the master chart just in time for the final approach to Carter Island.',
 };
 
 // 12 Gallery story moments from departure to the grand reveal
@@ -62,7 +62,7 @@ const GALLERY_MOMENTS = [
     fallbackImg: 'assets/img/ch08.webp',
   },
   {
-    title: '9. 100 Screws Unlashed',
+    title: '9. 123 Screws Unlashed',
     caption: 'Daniel and his helper racing against time to unscrew the heavy toolbox with tools and cheers.',
     fallbackImg: 'assets/img/ch09.webp',
   },

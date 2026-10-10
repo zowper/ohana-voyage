@@ -17,6 +17,34 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap">
   <link rel="stylesheet" href="css/style.css">
   <script type="module" src="js/host.js"></script>
+  <script>
+    if (window.location.protocol === 'file:') {
+      document.addEventListener('DOMContentLoaded', () => {
+        const loading = document.getElementById('loading');
+        if (loading) {
+          loading.innerHTML = `
+            <div class="card" style="max-width: 580px; margin: 2rem auto; text-align: left; padding: 2rem; border: 2px solid #E28445; border-radius: 16px; background: rgba(27, 42, 65, 0.95); box-shadow: 0 12px 36px rgba(0,0,0,0.4);">
+              <p class="chapter-label" style="color: #E28445; margin-bottom: 0.5rem; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.05em;">🌺 Night of ʻOhana · Host Console</p>
+              <h2 style="margin-top: 0; color: #FFFDF8; font-family: 'Playfair Display', Georgia, serif;">Local Web Server Required</h2>
+              <p style="color: #F4E9D8; font-size: 0.95rem; line-height: 1.6;">Browsers block Web Crypto client-side decryption and JavaScript modules when opening files directly from the filesystem (<code>file:///</code>).</p>
+              <div style="background: rgba(0,0,0,0.25); border-left: 3px solid #4FB0C6; padding: 1rem; border-radius: 6px; margin: 1.25rem 0;">
+                <p style="margin: 0 0 0.5rem 0; font-weight: bold; color: #A8DADC;">How to open the console:</p>
+                <ol style="margin: 0; padding-left: 1.25rem; color: #F4E9D8; line-height: 1.8;">
+                  <li>Open your terminal in this repository folder</li>
+                  <li>Run: <code style="background: #1B2A41; padding: 2px 6px; border-radius: 4px; color: #E9A23B;">npm run serve</code></li>
+                  <li>Then visit: <a href="http://localhost:8080/host.html" style="color: #4FB0C6; font-weight: bold; text-decoration: underline;">http://localhost:8080/host.html</a></li>
+                </ol>
+              </div>
+              <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem;">
+                <a href="http://localhost:8080/host.html" class="btn" style="text-decoration: none; padding: 0.6rem 1.2rem; background: #2A9D8F; color: #fff; border-radius: 8px; font-weight: bold; display: inline-block;">Open localhost:8080</a>
+                <a href="https://zowper.github.io/ohana-voyage/host.html" target="_blank" class="btn btn-ghost" style="text-decoration: none; padding: 0.6rem 1.2rem; border: 1px solid rgba(255,255,255,0.3); color: #F4E9D8; border-radius: 8px; display: inline-block;">Open on GitHub Pages</a>
+              </div>
+            </div>
+          `;
+        }
+      });
+    }
+  </script>
 </head>
 <body class="host-page">
   <header class="site-header">
@@ -237,7 +265,7 @@
                 <p id="remote-toolbox-loc" class="small muted"></p>
               </li>
               <li>
-                <strong>Daniel wrist warning:</strong> Reminder about 100 screws!
+                <strong>Daniel wrist warning:</strong> Reminder about 123 screws!
               </li>
             </ol>
 
@@ -384,7 +412,7 @@
             <h3>Host Emergency Kit Checklist</h3>
             <ul class="emergency-checklist">
               <li><label><input type="checkbox"> Spare physical keys for Key Padlock #1 and #2</label></li>
-              <li><label><input type="checkbox"> Extra screwdriver + power drill with bit (for 100-screw box)</label></li>
+              <li><label><input type="checkbox"> Extra screwdriver + power drill with bit (for 123-screw box)</label></li>
               <li><label><input type="checkbox"> Blacklight #1 (regular) + Blacklight #2 (365nm for tokens)</label></li>
               <li><label><input type="checkbox"> Spare AAA/AA batteries for blacklights</label></li>
               <li><label><input type="checkbox"> Printed Narration Script &amp; Host Cheat Sheet booklet</label></li>
